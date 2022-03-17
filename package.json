@@ -1,0 +1,47 @@
+{
+  "name": "ssr-react-base",
+  "version": "1.0.0",
+  "description": "A simple base application for a server side rendering react project",
+  "author": "Luis Cassih",
+  "license": "MIT",
+  "private": false,
+  "config": {
+    "dockerName": "ssr-react-base",
+    "dockerRepo": ""
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack -c webpack.config.js",
+    "dev": "NODE_ENV=development webpack --watch -c webpack.config.js",
+    "start": "cd build/ && NODE_ENV=production nodemon --inspect server.js",
+    "docker:build": "docker build . -t $npm_package_config_dockerName:$npm_package_version",
+    "predocker:build": "rm -rf build/ && yarn build",
+    "postdocker:build": "docker tag $npm_package_config_dockerName:$npm_package_version $npm_package_config_dockerName:latest",
+    "docker:start": "cd docker/ && docker-compose up -d",
+    "docker:stop": "cd docker/ && docker-compose down"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.2",
+    "server": "file:src/server"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@types/express": "^4.17.13",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
+    "css-loader": "^6.7.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.15",
+    "nodemon-webpack-plugin": "^4.7.1",
+    "sass-loader": "^12.6.0",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
