@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes, useRoutes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from './view';
 
 const initialState = (window as any)._initialState || {};

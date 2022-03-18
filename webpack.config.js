@@ -38,14 +38,38 @@ const base = {
         ],
       },
 			{
-        test: /\.(jpg|png|gif|pdf|ico|eot|ttf|woff2?)$/, use: [
+        test: /\.(ico|jpg|png|gif|webp)$/, use: [
           {
             loader: 'file-loader', 
             options: { 
-                name: '[path][name]-[hash:8].[ext]', 
-                outputPath: url => url.replace(/^src\/client\//,'public/'),
-                publicPath: url => url.replace(/^src\/client\//,'/'),
-            }
+                name: '[name]-[hash:8].[ext]', 
+								outputPath: 'public/assets/images',
+								publicPath: 'assets/images'
+						}
+          }
+        ]
+      },
+			{
+        test: /\.(eot|ttf|woff2?)$/, use: [
+          {
+            loader: 'file-loader', 
+            options: { 
+                name: '[name]-[hash:8].[ext]', 
+								outputPath: 'public/assets/fonts',
+								publicPath: 'assets/fonts'
+						}
+          }
+        ]
+      },
+			{
+        test: /\.(pdf)$/, use: [
+          {
+            loader: 'file-loader', 
+            options: { 
+                name: '[name]-[hash:8].[ext]', 
+								outputPath: 'public/assets/others',
+								publicPath: 'assets/others'
+						}
           }
         ]
       },
@@ -108,7 +132,7 @@ const server = {
 		new nodemon({
 			cwd: path.resolve(__dirname, 'build/'),
 			nodeArgs: ['--inspect'],
-			watch: path.resolve(__dirname, 'src/'),
+			watch: path.resolve(__dirname, 'build/'),
 			env: {
 				NODE_ENV: 'development'
 			},
