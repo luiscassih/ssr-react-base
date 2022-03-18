@@ -62,12 +62,12 @@ Aside from pages/ and server/, every module or feature have the same structure.
        │     └──────────────┘         browser, hydrates the server rendered react with your
        │                              browser react 」
        │     ┌─────────────────┐
-       ├───▶ │  controller.ts  │ ─── 「 This is server side, here is where you check for your ,  
-       │     └─────────────────┘      users calls React's app database and other server stuff,  
-       │                              and finally, build the props to pass to the React
-       │                              component. Don't forget to use res.render(Component,
-       │                              clientId , props) to generate the output html for
-       │                              the client to load your React's app 」
+       ├───▶ │  controller.ts  │ ─── 「 This is server side, here is where you perform api calls,
+       │     └─────────────────┘      users login, database, secrets, other server stuff, and
+       │                              finally build the props to pass to the React component.
+       │                              Don't forget to use res.render(Component, clientId,
+       │                              props) to generate the output html for the client
+       │                              to load your React's app 」
        │     ┌───────────────┐
        ├───▶ │  styles.scss  │ ───── 「 I recommend to scope your component here, make a class  
        │     └───────────────┘        with your component's name, and add this file to the
