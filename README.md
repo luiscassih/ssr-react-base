@@ -57,24 +57,24 @@ Aside from pages/ and server/, every module or feature have the same structure.
        │     └───────────────┘        feature 」
        │       └─▶  ...  ─────────── 「 Each component may be a folder which contains more nested
        │                              features 」
-			 │     ┌──────────────┐
+       │     ┌──────────────┐
        ├───▶ │  client.tsx  │ ────── 「 Contains component routing, it will be execute first on  
-       │     └──────────────┘         browser, hydrates the server rendered react with your browser 
-       │                              react 」
-			 │     ┌─────────────────┐
+       │     └──────────────┘         browser, hydrates the server rendered react with your
+       │                              browser react 」
+       │     ┌─────────────────┐
        ├───▶ │  controller.ts  │ ─── 「 This is server side, here is where you check for your ,  
        │     └─────────────────┘      users calls React's app database and other server stuff,  
        │                              and finally, build the props to pass to the React
        │                              component. Don't forget to use res.render(Component,
        │                              clientId , props) to generate the output html for
-			 │                              the client to load your React's app 」
+       │                              the client to load your React's app 」
        │     ┌───────────────┐
        ├───▶ │  styles.scss  │ ───── 「 I recommend to scope your component here, make a class  
        │     └───────────────┘        with your component's name, and add this file to the
        │                              global src/assets/styles/base.scss 」
-			 │     ┌────────────┐
+       │     ┌────────────┐
        ├───▶ │  types.ts  │ ──────── 「 This is where you expose your types related to this
-			 │     └────────────┘           feature 」
+       │     └────────────┘           feature 」
        │     ┌────────────┐
        └───▶ │  view.tsx  │ ──────── 「 Where your react components lives, this component will be
              └────────────┘           rendered bot on server and browser's client 」
