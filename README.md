@@ -1,7 +1,6 @@
-# 
-<h1 style="display:flex;align-items:center;flex-direction:column;" align="center">
-SSR-React-Base
-<image style="width: 100px;margin-top: 20px;" src="./src/pages/dashboard/assets/images/capi_wizard.png">
+<h1 align="center">
+	<img width=200 src="./src/pages/dashboard/assets/images/capi_wizard.png"><br>
+	SSR-React-Base
 </h1>
 
 ## A simple base application for a server side rendering react project using typescript.
@@ -54,7 +53,7 @@ Aside from pages/ and server/, every module or feature have the same structure.
 
 	-> client.tsx				| Contains component routing, it will be execute first on browser, hydrates the server rendered react with your browser react.
 
-	-> controller.ts			| This is server side, here is where you check for your users, calls database and other server stuff, and finally, build the props to pass to the React component.
+	-> controller.ts			| This is server side, here is where you check for your users, calls database and other server stuff, and finally, build the props to pass to the React component. Don't forget to use res.render(Component: React.FC, clientId: string, props: Object) to generate the output html for the client to load your React's app.
 
 	-> styles.scss				| I recommend to scope your component here, make a class with your component's name, and add this file to the global src/assets/styles/base.scss
 

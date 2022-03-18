@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 const nodemon = require('nodemon-webpack-plugin');
+const fs = require('fs');
 
 const base = {
 	output: {
@@ -93,8 +94,10 @@ const client = {
 		'public/clients/dashboard': [
 			// Any extra css should be inside base.scss, not here.
 			'./src/assets/styles/base.scss',
-			// Put each client here
-			'./src/pages/dashboard/client.tsx',
+			...fs.readdirSync(__dirname + '/src/pages/').flatMap(f => {
+				const file = `./src/pages/${f}/client.tsx`;
+				return fs.existsSync(file) ? file : [];
+			})
 		]
 	},
 	optimization: {

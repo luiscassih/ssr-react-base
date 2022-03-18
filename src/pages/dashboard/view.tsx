@@ -7,10 +7,10 @@ export default (props: DashboardProps) => {
 	const [counter, setCounter] = useState(props.counter || 0);
 	return (
 		<div className='Dashboard'>
-			Example
-			<button onClick={() => setCounter(counter + 1)}>{counter}</button>
+			<img className='CapiWizardImage' src={capiWizardImage} />
+			SSR-React-Base
+			<button className='CounterBtn' onClick={() => setCounter(counter + 1)}>{counter}</button>
 			<DockerIcon className="DockerIcon" />
-			<img src={capiWizardImage} />
 		</div>
 	);
 };
