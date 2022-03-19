@@ -1,3 +1,3 @@
 export interface DashboardProps {
-	counter: number
+  counter: number
 };

@@ -1,6 +1,6 @@
 <h1 align="center">
-	<img width=200 src="./src/pages/dashboard/assets/images/capi_wizard.png"><br>
-	SSR-React-Base
+  <img width=200 src="./src/pages/dashboard/assets/images/capi_wizard.png"><br>
+  SSR-React-Base
 </h1>
 
 ## A simple base application for a server side rendering react project using typescript.

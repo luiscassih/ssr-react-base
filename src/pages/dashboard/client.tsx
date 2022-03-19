@@ -6,13 +6,13 @@ import Dashboard from './view';
 const initialState = (window as any)._initialState || {};
 
 const App = () => {
-	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path='/dashboard' element={<Dashboard {...initialState} />} />
-			</Routes>
-		</BrowserRouter>
-	)
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/dashboard' element={<Dashboard {...initialState} />} />
+      </Routes>
+    </BrowserRouter>
+  )
 };
 
 ReactDOM.hydrate(<App />, document.getElementById('app'));
