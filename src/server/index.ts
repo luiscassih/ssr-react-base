@@ -16,6 +16,7 @@ app.use(express.static("public"));
 app.use(layout);
 
 // Main router
+app.get('/', (_req, res) => res.redirect('/dashboard'));
 app.use('/', router);
 
 const PORT = process.env.PORT || 8080;

@@ -19,18 +19,20 @@ To generate a production ready build:
 ```
 yarn build
 ```
-To run tests
+To run tests usin Jest and React-testing-library
 ```
 yarn test
 ```
 ---
 ## Docker
 ---
-To generate a docker image
+To generate a docker image ready for a production environment. It will take the name and
+the version from the package.json file, and it will also tag the generated version to latest.
 ```
 yarn docker:build
 ```
-To start a container using docker-compose.
+To start a container using docker-compose, but before that go to the Docker folder and edit 
+the app service to match your project image, you can also add a db or any other service.
 ```
 yarn docker:start
 ```
@@ -49,6 +51,9 @@ Aside from pages/ and server/, every module or feature have the same structure.
 ┌──────────────┐
 │   Feature    │
 └──────────────┘  
+       │     ┌──────────────┐
+       ├───▶ │  __tests__/  │ ────── 「 Your tests, written in .tsx and using jest with react
+       │     └──────────────┘         testing library 」
        │     ┌───────────┐
        ├───▶ │  assets/  │ ───────── 「 Contains every image, svg or public assets 」
        │     └───────────┘
